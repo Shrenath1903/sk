@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - SK Engineering and Automation</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">SK Engineering</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="products.html" class="active">Products</a></li>
+            <li><a href="gallery.html" class="active">Project Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Innovative Engineering Solutions</h1>
+            <p>Transforming challenges into opportunities through cutting-edge automation and engineering</p>
+        </div>
+    </section>
+
+    <section class="container company-intro">
+        <h2>Who We Are</h2>
+        <p>SK Engineering & Automation is a forward-thinking company dedicated to providing comprehensive electrical and automation solutions across diverse industries.</p>
+    </section>
+
+    <section class="company-certifications">
+        <div class="container">
+            <h2>Our Certifications</h2>
+            <div class="certifications-grid">
+                <div class="certification-card">
+                    <div class="certification-icon">★</div>
+                    <h3>Bizsafe Star</h3>
+                    <div class="certification-actions">
+                        <a href="#" class="btn-view" data-certificate="Bizsafestar.pdf">View Certificate</a>
+                        <a href="img/Bizsafestar.pdf" class="btn-download" download>Download</a>
+                    </div>
+                </div>
+                <div class="certification-card">
+                    <div class="certification-icon">🏢</div>
+                    <h3>Company Registration</h3>
+                    <div class="certification-actions">
+                        <a href="#" class="btn-view" data-certificate="CertificateofRegistration.pdf">View Certificate</a>
+                        <a href="img/CertificateofRegistration.pdf" class="btn-download" download>Download</a>
+                    </div>
+                </div>
+                <div class="certification-card">
+                    <div class="certification-icon">✓</div>
+                    <h3>Additional Registration</h3>
+                    <div class="certification-actions">
+                        <a href="#" class="btn-view" data-certificate="CertificateofRegistration2.pdf">View Certificate</a>
+                        <a href="img/CertificateofRegistration2.pdf" class="btn-download" download>Download</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificate Modal -->
+    <div class="certificate-modal-overlay">
+        <div class="certificate-modal">
+            <button class="certificate-modal-close">&times;</button>
+            <iframe class="certificate-modal-image" src="" type="application/pdf"></iframe>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 SK Engineering and Automation. All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Certificate Modal JavaScript
+        document.querySelectorAll('.btn-view').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const certificateSrc = 'img/' + button.getAttribute('data-certificate');
+                const modalOverlay = document.querySelector('.certificate-modal-overlay');
+                const modalImage = document.querySelector('.certificate-modal-image');
+                
+                modalImage.src = certificateSrc;
+                modalOverlay.classList.add('show');
+            });
+        });
+
+        // Close modal
+        document.querySelector('.certificate-modal-close').addEventListener('click', () => {
+            const modalOverlay = document.querySelector('.certificate-modal-overlay');
+            modalOverlay.classList.remove('show');
+        });
+
+        // Close modal when clicking outside
+        document.querySelector('.certificate-modal-overlay').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) {
+                e.currentTarget.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

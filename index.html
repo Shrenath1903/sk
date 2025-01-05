@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SK Engineering and Automation</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">SK Engineering</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="products.html" class="active">Products</a></li>
+            <li><a href="gallery.html" class="active">Project Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>SK Engineering and Automation</h1>
+            <p>Transforming challenges into opportunities through cutting-edge automation and engineering solutions</p>
+            <a href="contact.html" class="button">Get Started</a>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="container">
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Industrial Solutions</h3>
+                    <p>Complete range of industrial automation and control systems for manufacturing facilities. 
+                    Enhance productivity and efficiency with our cutting-edge solutions.</p>
+                    <a href="products.html">Learn More</a>
+                </div>
+
+                <div class="service-card">
+                    <h3>Home Automation</h3>
+                    <p>Smart home solutions for modern living. Control your home environment 
+                    with intelligent systems designed for comfort and convenience.</p>
+                    <a href="products.html">View Products</a>
+                </div>
+
+                <div class="service-card">
+                    <h3>Engineering Services</h3>
+                    <p>Professional engineering services backed by certified expertise. 
+                    From design to implementation, we ensure quality at every step.</p>
+                    <a href="contact.html">Get Quote</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="certifications">
+        <div class="container">
+            <h2>Our Certifications</h2>
+            <div class="certifications-grid">
+                <div class="certification-card">
+                    <h3>Bizsafe Star</h3>
+                    <p>Certified for workplace safety excellence</p>
+                    <div class="certification-actions">
+                        <a href="#" class="btn-view" data-certificate="Bizsafestar.pdf">View Certificate</a>
+                        <a href="img/Bizsafestar.pdf" class="btn-download" download>Download</a>
+                    </div>
+                </div>
+
+                <div class="certification-card">
+                    <h3>Company Registration</h3>
+                    <p>Officially registered engineering firm</p>
+                    <div class="certification-actions">
+                        <a href="#" class="btn-view" data-certificate="CertificateofRegistration.pdf">View Certificate</a>
+                        <a href="img/CertificateofRegistration.pdf" class="btn-download" download>Download</a>
+                    </div>
+                </div>
+
+                <div class="certification-card">
+                    <h3>Additional Registration</h3>
+                    <p>Specialized industry certifications</p>
+                    <div class="certification-actions">
+                        <a href="#" class="btn-view" data-certificate="CertificateofRegistration2.pdf">View Certificate</a>
+                        <a href="img/CertificateofRegistration2.pdf" class="btn-download" download>Download</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-info">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <p>Contact us for any inquiries about our services</p>
+            <div class="contact-details">
+                <div class="contact-item">
+                    <h3>Phone</h3>
+                    <p>+65 91229102</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Email</h3>
+                    <p>smart.kirithick@gmail.com</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Address</h3>
+                    <p>31 Defu Lane 10, Singapore 539212</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="certificate-modal-overlay">
+        <div class="certificate-modal">
+            <button class="certificate-modal-close">&times;</button>
+            <iframe class="certificate-modal-image" src="" type="application/pdf"></iframe>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 SK Engineering and Automation. All Rights Reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.btn-view').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const certificateSrc = 'img/' + button.getAttribute('data-certificate');
+                const modalOverlay = document.querySelector('.certificate-modal-overlay');
+                const modalImage = document.querySelector('.certificate-modal-image');
+                
+                modalImage.src = certificateSrc;
+                modalOverlay.classList.add('show');
+            });
+        });
+
+        document.querySelector('.certificate-modal-close').addEventListener('click', () => {
+            const modalOverlay = document.querySelector('.certificate-modal-overlay');
+            modalOverlay.classList.remove('show');
+        });
+
+        document.querySelector('.certificate-modal-overlay').addEventListener('click', (e) => {
+            if (e.target === e.currentTarget) {
+                e.currentTarget.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
